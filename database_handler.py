@@ -4,7 +4,7 @@ from logging_handler import show_error_message
 import pandas as pd
 from datetime import datetime
 import time as my_time
-import gzip 
+# import gzip 
 
 db_name = "airbnb_data"
 db_user = "postgres"

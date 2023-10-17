@@ -15,6 +15,7 @@ class ErrorHandling(Enum):
     PREHOOK_SQL_ERROR = "Error executing sql files in the prehook"
     ERROR_CREATING_STAGING_TABLE = "Error creating the staging tables - prehook"
     HOOK_SQL_ERROR = "Error executing sql files in the hook"
+    PANDAS_HANDLER_ERROR = "Error returning the cleaned dataframes!"
 
 class InputTypes (Enum):
     CSV = "csv"
