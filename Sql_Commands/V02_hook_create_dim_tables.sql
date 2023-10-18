@@ -103,22 +103,22 @@ DO UPDATE SET
 -- reviews dimension table
 CREATE TABLE IF NOT EXISTS target_schema.dim_reviews
 (
-    id bigint PRIMARY KEY, 
+    review_id bigint PRIMARY KEY, 
     last_updated TIMESTAMP, 
     reviewer_id INTEGER, 
     reviewer_name TEXT, 
     comments TEXT
 );
-CREATE INDEX IF NOT EXISTS "idx_review_id" ON target_schema.dim_reviews(id);
+CREATE INDEX IF NOT EXISTS "idx_review_id" ON target_schema.dim_reviews(review_id);
 INSERT INTO target_schema.dim_reviews
 SELECT DISTINCT
-    src_reviews.id, 
+    src_reviews.review_id, 
     src_reviews.last_updated, 
     src_reviews.reviewer_id, 
     src_reviews.reviewer_name, 
     src_reviews.comments
 FROM target_schema.stg_cleaned_df2 AS src_reviews
-ON CONFLICT(id)
+ON CONFLICT(review_id)
 DO UPDATE SET
     last_updated = EXCLUDED.last_updated, 
     reviewer_id = EXCLUDED.reviewer_id, 

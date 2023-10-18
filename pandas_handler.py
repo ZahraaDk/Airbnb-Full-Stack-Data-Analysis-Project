@@ -31,6 +31,10 @@ def dataframes_cleansed():
 
         df['listing_name'] = df['listing_name'].str.split('·').str.get(0).str.strip()
 
+        df['price'] = df['price'].str.replace('[\$,]', '', regex=True)
+
+        df['price'] = pd.to_numeric(df['price'])
+
         df['listing_description'] = df['listing_description'].str.replace('<br />', '').str.replace('<b>', '').replace('</b>', '')
 
         columns_to_fill = [
@@ -72,9 +76,12 @@ def dataframes_cleansed():
 
         df['last_updated'] = df['last_updated'].apply(pd.to_datetime)
 
+        df['price'] = pd.to_numeric(df['price'])
+
+
         # df_2 = read_data_as_dataframe(InputTypes.CSV, Sources.reviews_source.value)
         df_2 = read_data_as_dataframe(InputTypes.CSV,'csv_files\\reviews.csv')
-        df_2.rename(columns={'date':'last_updated'}, inplace=True)
+        df_2.rename(columns={'date':'last_updated', 'id':'review_id'}, inplace=True)
         df_2['comments'] = df_2['comments'].fillna('unspecified')
         df_2['listing_id'] = df_2['listing_id'].astype('object')
         df_2['last_updated'] = df_2['last_updated'].apply(pd.to_datetime)
