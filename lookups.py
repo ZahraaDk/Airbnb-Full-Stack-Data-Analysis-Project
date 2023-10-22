@@ -16,6 +16,8 @@ class ErrorHandling(Enum):
     ERROR_CREATING_STAGING_TABLE = "Error creating the staging tables - prehook"
     HOOK_SQL_ERROR = "Error executing sql files in the hook"
     PANDAS_HANDLER_ERROR = "Error returning the cleaned dataframes!"
+    TRUNCATE_ERROR = "Error truncating the staging tables!"
+    EXECUTE_POSTHOOK_ERROR = "Error executing the posthook!"
 
 class InputTypes (Enum):
     CSV = "csv"
@@ -54,3 +56,6 @@ class ETL_Checkpoint(Enum):
     COLUMN = "etl_last_run"
     ETL_DEFAULT_DATE = "1900-01-01 00:00:00"
 
+class StagingTables(Enum):
+    STG_LISTING = "stg_cleaned_df1"
+    STG_REVIEWS = "stg_cleaned_df2"

@@ -106,7 +106,7 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
                             AND column_name = 'sentiment_score'
                         )
                         THEN
-                            ALTER TABLE {target_schema}.stg_{table_name}
+                            ALTER TABLE {target_schema.value}.stg_{table_name}
                             ADD COLUMN sentiment_score DECIMAL(10, 5);
                         END IF;
                     END $$;

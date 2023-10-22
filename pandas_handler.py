@@ -63,6 +63,8 @@ def dataframes_cleansed():
         df_2['comments'] = df_2['comments'].fillna('unspecified')
         df_2['listing_id'] = df_2['listing_id'].astype('object')
         df_2['last_updated'] = df_2['last_updated'].apply(pd.to_datetime)
+        df_2['comments'] = df_2['comments'].replace('<br/>', '', regex=True)
+
         # df_2['sentiment_score'] = '' 
         
         cleaned_dataframes = {
