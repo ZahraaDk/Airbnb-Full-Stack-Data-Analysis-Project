@@ -19,7 +19,7 @@ def dataframes_cleansed():
             'minimum_nights_avg_ntm', 'maximum_nights_avg_ntm', 'license', 'host_verifications', 'property_type',
             'availability_60', 'availability_90', 'calculated_host_listings_count',
             'calculated_host_listings_count_entire_homes', 'calculated_host_listings_count_private_rooms',
-            'calculated_host_listings_count_shared_rooms'
+            'calculated_host_listings_count_shared_rooms', 'neighbourhood'
         ]
         df = df.drop(columns=columns_to_drop)
 
@@ -43,27 +43,6 @@ def dataframes_cleansed():
         ]
         df[columns_to_fill] = df[columns_to_fill].fillna('unspecified')
 
-        neighbourhood_mapping = {
-            'San Diego , California, United States': 'San Diego, California, United States',
-            'San diego, California, United States': 'San Diego, California, United States',
-            'San Diego, Ca, United States': 'San Diego, California, United States',
-            'San Diego County, California, United States': 'San Diego, California, United States',
-            'San Diego, United States': 'San Diego, California, United States',
-            'San Diego , Ca, United States': 'San Diego, California, United States',
-            ' San Diego, California, United States': 'San Diego, California, United States',
-            'SAN DIEGO, California, United States': 'San Diego, California, United States',
-            'La Jolla, California, United States': 'La Jolla, San Diego, United States',
-            'LA JOLLA, California, United States': 'La Jolla, San Diego, United States',
-            'La Jolla , California, United States': 'La Jolla, San Diego, United States',
-            'Mission Bay, California, United States': 'Mission Beach, California, United States',
-            'La Jolla Cove, California, United States': 'La Jolla, San Diego, United States',
-            'LA JOLLA, CALIFORNIA, United States': 'La Jolla, San Diego, United States',
-            ' La Jolla, California, United States': 'La Jolla, San Diego, United States',
-            'CA, United States': 'California, United States',
-            'California, South Dakota, United States': 'California, United States'
-        }
-        df['neighbourhood'] = df['neighbourhood'].map(neighbourhood_mapping).fillna('San Diego, California, United States')
-
         df['review_scores_rating'].fillna(df['review_scores_rating'].mean(), inplace=True)
         df['reviews_per_month'].fillna(0, inplace=True)
         df['first_review'] = pd.to_datetime(df['first_review'], errors='coerce').fillna(0)
@@ -74,10 +53,9 @@ def dataframes_cleansed():
 
         df['listing_id'] = df['listing_id'].astype('object')
 
-        df['last_updated'] = df['last_updated'].apply(pd.to_datetime)
+        df['last_updated'] = pd.to_datetime(df['last_updated'])
 
         df['price'] = pd.to_numeric(df['price'])
-
 
         # df_2 = read_data_as_dataframe(InputTypes.CSV, Sources.reviews_source.value)
         df_2 = read_data_as_dataframe(InputTypes.CSV,'csv_files\\reviews.csv')
@@ -85,17 +63,11 @@ def dataframes_cleansed():
         df_2['comments'] = df_2['comments'].fillna('unspecified')
         df_2['listing_id'] = df_2['listing_id'].astype('object')
         df_2['last_updated'] = df_2['last_updated'].apply(pd.to_datetime)
-        
-        # df_3 = read_data_as_dataframe(InputTypes.CSV, Sources.calender_source.value)
-        # df_3 = read_data_as_dataframe(InputTypes.CSV, 'csv_files\\calendar.csv')
-        # df_3.rename(columns={'date' : 'last_updated'}, inplace=True)
-        # df_3['last_updated'] = df_3['last_updated'].apply(pd.to_datetime)
-        # df_3['listing_id'] = df_3['listing_id'].astype('object')
+        # df_2['sentiment_score'] = '' 
         
         cleaned_dataframes = {
             'cleaned_df1' : df,
             'cleaned_df2' : df_2
-            # 'cleaned_df3' : df_3
         }    
 
     except Exception as error:
