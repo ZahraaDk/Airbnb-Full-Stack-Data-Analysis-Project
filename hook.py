@@ -5,6 +5,7 @@ from logging_handler import show_error_message
 import os 
 import datetime
 from pandas_handler import dataframes_cleansed
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 def execute_sql_folder_hook(db_session, target_schema = DestSchema.DW_SCHEMA, sql_directory_path = SQLCommands.SQL_FOLDER):
     sql_files = None
@@ -78,24 +79,54 @@ def return_etl_last_updated_date(db_session,
         show_error_message(HookSteps.RETURN_LAST_ETL_RUN.value, str(e))
     finally:    
         return return_date, etl_time_exists
+    
+sia = SentimentIntensityAnalyzer()
+def analyze_sentiment(text):
+    sentiment = sia.polarity_scores(text)
+    compound_score = sentiment['compound']
+    return compound_score
+
+def apply_sentiment_analysis(df):
+    df['sentiment_score'] = df['comments'].apply(analyze_sentiment)
+
 
 def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_date=None):
     messages = []
     dataframes_dict = dataframes_cleansed()
     try:
         for table_name, staging_df in dataframes_dict.items():
-            if table_name in dataframes_dict:
-                staging_dfs = staging_df[staging_df['last_updated'] > etl_date]
-                if not staging_dfs.empty:
-                    insert_stmt = insert_into_sql_statement_from_df(staging_dfs, target_schema.value, f"stg_{table_name}")
-                    execute_return = execute_query(db_session=db_session, query=insert_stmt)
-                    if execute_return != ErrorHandling.NO_ERROR:
-                        raise Exception (f"Error inserting data into stg_{table_name}: {execute_return}")
-                    else:
-                        messages.append(f"Inserted new data after '{etl_date}' into stg_{table_name} successfully.")
+            if 'comments' in staging_df.columns:
+                query = f"""
+                    DO $$ 
+                    BEGIN
+                        IF NOT EXISTS (
+                            SELECT column_name
+                            FROM information_schema.columns
+                            WHERE table_name = 'stg_{table_name}'
+                            AND column_name = 'sentiment_score'
+                        )
+                        THEN
+                            ALTER TABLE {target_schema}.stg_{table_name}
+                            ADD COLUMN sentiment_score DECIMAL(10, 5);
+                        END IF;
+                    END $$;
+
+                """
+                execute_query(db_session, query)
+                print("Column was added")
+                apply_sentiment_analysis(staging_df)
+                print("sentiment analsyis applied in python")
+            staging_dfs = staging_df[staging_df['last_updated'] > etl_date]
+            if not staging_dfs.empty:
+                insert_stmt = insert_into_sql_statement_from_df(staging_dfs, target_schema.value, f"stg_{table_name}")
+                execute_return = execute_query(db_session=db_session, query=insert_stmt)
+                if execute_return != ErrorHandling.NO_ERROR:
+                    raise Exception(f"Error inserting data into stg_{table_name}: {execute_return}")
+                messages.append(f"Inserted new data after '{etl_date}' into stg_{table_name} successfully.")
     except Exception as e:
         show_error_message(HookSteps.INSERT_INTO_STG_TABLE.value, str(e))
     return messages
+
 
 def execute_hook():
     step = None
