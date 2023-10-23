@@ -107,7 +107,8 @@ CREATE TABLE IF NOT EXISTS target_schema.dim_reviews
     last_updated TIMESTAMP, 
     reviewer_id INTEGER, 
     reviewer_name TEXT, 
-    comments TEXT
+    comments TEXT, 
+    sentiment_score NUMERIC
 );
 CREATE INDEX IF NOT EXISTS "idx_review_id" ON target_schema.dim_reviews(review_id);
 INSERT INTO target_schema.dim_reviews
@@ -116,14 +117,16 @@ SELECT DISTINCT
     src_reviews.last_updated, 
     src_reviews.reviewer_id, 
     src_reviews.reviewer_name, 
-    src_reviews.comments
+    src_reviews.comments, 
+    src_reviews.sentiment_score
 FROM target_schema.stg_cleaned_df2 AS src_reviews
 ON CONFLICT(review_id)
 DO UPDATE SET
     last_updated = EXCLUDED.last_updated, 
     reviewer_id = EXCLUDED.reviewer_id, 
     reviewer_name = EXCLUDED.reviewer_name, 
-    comments = EXCLUDED.comments;
+    comments = EXCLUDED.comments,
+    sentiment_score = EXCLUDED.sentiment_score;
 
 
 
