@@ -116,7 +116,7 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
                 print("Column was added")
                 apply_sentiment_analysis(staging_df)
                 print("sentiment analsyis applied in python")
-            staging_dfs = staging_df[staging_df['last_updated'] > etl_date]
+            staging_dfs = staging_df[staging_df['booking_date'] > etl_date]
             if not staging_dfs.empty:
                 insert_stmt = insert_into_sql_statement_from_df(staging_dfs, target_schema.value, f"stg_{table_name}")
                 execute_return = execute_query(db_session=db_session, query=insert_stmt)
