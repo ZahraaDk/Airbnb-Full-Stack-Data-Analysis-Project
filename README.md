@@ -40,24 +40,24 @@
 ### User Stories
 
   
-1. As a Data Engineer:
-	I want to automatically scrape various economic indicators from reputable sources so that our dataset is always up-to-date.
-	I want to integrate different data sources seamlessly.
-	Ensure fault tolerance in our data pipelines, so that potential failures don't interrupt our analyses.
-2. As an Analyst:
-	I want to query the database.
-	I want to view the sentiment analysis results to understand public sentiment around economic conditions.
-	I want to visualize the data using PowerBI.
-3. As an Airbnb Host:
-	I want to access market insights so that i can optimize my property listings and pricing strategies. 
-	I want to review guest sentiment analysis results so that I can improve the overall guest experience in my listings.
-4. As a Traveler/Guest:
-	I want to use this data to make decisions when selecting accommodations.
-	I want to understand pricing trends so that I can make budget-conscious choices. 
-5. As a Business Owner:
-	I want to conduct competitive analyses using this data so that I can stay competitive in the market.
-	I want to understand guest review sentiments.
-	I want to use market insights for tailored services and marketing efforts so that my business aligns with customer expectations and attracts more clients.
+1. As a Data Engineer: <br>
+	I want to automatically extract Airbnb data from reputable sources so that our dataset is always up-to-date. <br>
+	I want to integrate different data sources seamlessly. <br>
+	Ensure fault tolerance in our data pipelines, so that potential failures don't interrupt our analyses. <br>
+2. As an Analyst: <br>
+	I want to query the database. <br>
+	I want to view the sentiment analysis results to understand guest sentiment around Airbnb experience. <br>
+	I want to visualize the data using PowerBI. <br>
+3. As an Airbnb Host: <br>
+	I want to access market insights so that i can optimize my property listings and pricing strategies. <br>
+	I want to review guest sentiment analysis results so that I can improve the overall guest experience in my listings. <br>
+4. As a Traveler/Guest: <br>
+	I want to use this data to make decisions when selecting accommodations. <br>
+	I want to understand pricing trends so that I can make budget-conscious choices. <br>
+5. As a Business Owner: <br>
+	I want to conduct competitive analyses using this data so that I can stay competitive in the market. <br>
+	I want to understand guest review sentiments. <br>
+	I want to use market insights for tailored services and marketing efforts so that my business aligns with customer expectations and attracts more clients. <br>
 
 
 <br><br>
@@ -120,12 +120,12 @@ Bin Tracker is built using the following technologies:
 
 ## Frontend
 
-Interactive PowerBI Dashboard:
-A central dashboard where viewers can view:
+Interactive PowerBI Dashboard: <br>
+A central dashboard where viewers can check: <br>
 
-1. Airbnb Insights: Graphs, charts and visualizations displaying key insights into the Airbnb market over time. Gain deep understading of trends, pricings, property types, and host performance.
-2. Sentiment Analysis: Representations of guest review sentiments for Airbnb experiences using interactive representations, including heat maps
-3. Interactive filters: options to filter data by date, region, or specific economic indicatiors for customized views.
+1. Airbnb Insights: Graphs, charts and visualizations displaying key insights into the Airbnb market over time, along with key influencers and decomposition trees that aid in the understanding of the analysis.
+2. Sentiment Analysis: Representations of guest review sentiments for Airbnb experiences using interactive representations, including heat maps, pie charts, or sentiment bars. 
+3. Interactive filters: Options to filter data by date and region.
 
 
   
@@ -136,7 +136,7 @@ A central dashboard where viewers can view:
 
 ## Backend
 
-1. ETL Pipeline: using python and pandas, raw data is extracted, transformed into a usable format and loaded into postgreSQL database.
+1. ETL Pipeline: Using Python and pandas, raw data is extracted, transformed into a usable format and loaded into PostgreSQL database.
 2. Database: Schema Design - Indexing - Data Integrity - Backup & Recovery.
 3. Sentiment Analysis: Applying sentiment analysis in the ETL process to extract sentiment from the reviews. 
 
@@ -220,13 +220,13 @@ Using Keras, we analyze the historical economic data, training predictive models
   Model Deployment -->
   
 
-| ML Flow Diagram|
+<!-- | ML Flow Diagram|
 
 | ---| ---|
 
 |![fsdaf](./readme/implementation/arduino.gif)|![fsdaf](./readme/implementation/circuit.png)
 
-  
+   -->
 
 | Data Transfer Demo |
 
@@ -243,7 +243,7 @@ Using Keras, we analyze the historical economic data, training predictive models
 <img  src="./readme/title6.svg" id="run"/>
   
 
-> To set up ## **USA Recession Analysis and Prediction** follow these steps:
+> To set up **Airbnb Analysis** follow these steps:
 
 ### Prerequisites
 
@@ -262,7 +262,7 @@ Using Keras, we analyze the historical economic data, training predictive models
 -   Install database connectors/drivers for PostgreSQL.
   
 
-### **Setting Up the Environment**:
+**Setting Up the Environment**:
 
 **Clone the Repository**:
 
