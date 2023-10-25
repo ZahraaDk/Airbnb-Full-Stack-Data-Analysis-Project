@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS target_schema.dim_listing
 (
     listing_id TEXT PRIMARY KEY, 
     listing_name TEXT,
+    listing_date TIMESTAMP,
     listing_description TEXT,
     listing_url VARCHAR,
     picture_url VARCHAR
@@ -11,7 +12,8 @@ CREATE INDEX IF NOT EXISTS "idx_listing_id" ON target_schema.dim_listing(listing
 INSERT INTO target_schema.dim_listing
 SELECT DISTINCT
     src_listing.listing_id, 
-    src_listing.listing_name, 
+    src_listing.listing_name,
+    src_listing.listing_date, 
     src_listing.listing_description, 
     src_listing.listing_url, 
     src_listing.picture_url
@@ -19,6 +21,7 @@ FROM target_schema.stg_cleaned_df1 as src_listing
 ON CONFLICT(listing_id)
 DO UPDATE SET 
     listing_name = EXCLUDED.listing_name, 
+    listing_date = EXCLUDED.listing_date,
     listing_description = EXCLUDED.listing_description, 
     listing_url = EXCLUDED.listing_url, 
     picture_url = EXCLUDED.picture_url;
@@ -104,7 +107,7 @@ DO UPDATE SET
 CREATE TABLE IF NOT EXISTS target_schema.dim_reviews
 (
     review_id bigint PRIMARY KEY, 
-    last_updated TIMESTAMP, 
+    booking_date TIMESTAMP, 
     reviewer_id INTEGER, 
     reviewer_name TEXT, 
     comments TEXT, 
@@ -114,7 +117,7 @@ CREATE INDEX IF NOT EXISTS "idx_review_id" ON target_schema.dim_reviews(review_i
 INSERT INTO target_schema.dim_reviews
 SELECT DISTINCT
     src_reviews.review_id, 
-    src_reviews.last_updated, 
+    src_reviews.booking_date, 
     src_reviews.reviewer_id, 
     src_reviews.reviewer_name, 
     src_reviews.comments, 
@@ -122,11 +125,8 @@ SELECT DISTINCT
 FROM target_schema.stg_cleaned_df2 AS src_reviews
 ON CONFLICT(review_id)
 DO UPDATE SET
-    last_updated = EXCLUDED.last_updated, 
+    booking_date = EXCLUDED.booking_date, 
     reviewer_id = EXCLUDED.reviewer_id, 
     reviewer_name = EXCLUDED.reviewer_name, 
     comments = EXCLUDED.comments,
     sentiment_score = EXCLUDED.sentiment_score;
-
-
-
