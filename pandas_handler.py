@@ -24,8 +24,8 @@ def dataframes_cleansed():
         df = df.drop(columns=columns_to_drop)
 
         column_mapping = {
-            'last_scraped': 'last_updated', 'name' : 'listing_name', 'id': 'listing_id', 'neighbourhood_cleansed': 'neighbourhood_view',
-            'room_type': 'property_type', 'bathrooms_text': 'bathrooms', 'description' : 'listing_description'
+            'last_scraped': 'booking_date', 'name' : 'listing_name', 'id': 'listing_id', 'neighbourhood_cleansed': 'neighbourhood_view',
+            'room_type': 'property_type', 'bathrooms_text': 'bathrooms', 'description' : 'listing_description', 'first_review' : 'listing_date'
         }
         df = df.rename(columns=column_mapping)
 
@@ -45,7 +45,7 @@ def dataframes_cleansed():
 
         df['review_scores_rating'].fillna(df['review_scores_rating'].mean(), inplace=True)
         df['reviews_per_month'].fillna(0, inplace=True)
-        df['first_review'] = pd.to_datetime(df['first_review'], errors='coerce').fillna(0)
+        # df['first_review'] = pd.to_datetime(df['first_review'], errors='coerce').fillna(0)
         df['last_review'] = pd.to_datetime(df['last_review'], errors='coerce').fillna(0)
 
         df[['bathrooms', 'bedrooms', 'beds']] = df[['bathrooms', 'bedrooms', 'beds']].fillna(0)
@@ -53,16 +53,18 @@ def dataframes_cleansed():
 
         df['listing_id'] = df['listing_id'].astype('object')
 
-        df['last_updated'] = pd.to_datetime(df['last_updated'])
+        df['booking_date'] = pd.to_datetime(df['booking_date'])
+
+        df['listing_date'] = pd.to_datetime(df['listing_date'])
 
         df['price'] = pd.to_numeric(df['price'])
 
         # df_2 = read_data_as_dataframe(InputTypes.CSV, Sources.reviews_source.value)
         df_2 = read_data_as_dataframe(InputTypes.CSV,'csv_files\\reviews.csv')
-        df_2.rename(columns={'date':'last_updated', 'id':'review_id'}, inplace=True)
+        df_2.rename(columns={'date':'booking_date', 'id':'review_id'}, inplace=True)
         df_2['comments'] = df_2['comments'].fillna('unspecified')
         df_2['listing_id'] = df_2['listing_id'].astype('object')
-        df_2['last_updated'] = df_2['last_updated'].apply(pd.to_datetime)
+        df_2['booking_date'] = df_2['booking_date'].apply(pd.to_datetime)
         df_2['comments'] = df_2['comments'].replace('<br/>', '', regex=True)
 
         # df_2['sentiment_score'] = '' 
