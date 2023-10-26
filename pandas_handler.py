@@ -7,10 +7,10 @@ def dataframes_cleansed():
     cleaned_dataframes = {}
     try:
         # df = read_data_as_dataframe(InputTypes.CSV, Sources.listings_source.value)
-        file_path = r'csv_files\listings.csv'  # Use raw string for Windows file path
+        file_path = r'csv_files\listings.csv'
         df = read_data_as_dataframe(InputTypes.CSV, file_path)
         columns_to_drop = [
-            'scrape_id', 'source', 'host_acceptance_rate', 'host_is_superhost', 'host_thumbnail_url', 'host_picture_url',
+            'scrape_id', 'source', 'host_acceptance_rate', 'host_thumbnail_url', 'host_picture_url', 
             'host_listings_count', 'host_has_profile_pic', 'neighbourhood_group_cleansed', 'bathrooms', 'calendar_updated',
             'number_of_reviews_ltm', 'number_of_reviews_l30d', 'calendar_last_scraped', 'review_scores_accuracy',
             'review_scores_cleanliness', 'review_scores_checkin', 'review_scores_communication', 'review_scores_location',
@@ -38,13 +38,15 @@ def dataframes_cleansed():
         df['listing_description'] = df['listing_description'].str.replace('<br />', '').str.replace('<b>', '').replace('</b>', '')
 
         columns_to_fill = [
-            'listing_description', 'host_name', 'host_since', 'host_total_listings_count', 'host_identity_verified', 'host_location',
+            'listing_description', 'host_name', 'host_since', 'host_identity_verified', 'host_location',
             'host_response_time', 'host_response_rate', 'host_neighbourhood'
         ]
         df[columns_to_fill] = df[columns_to_fill].fillna('unspecified')
 
+        df['host_total_listings_count'] = df['host_total_listings_count'].fillna(1)
         df['review_scores_rating'].fillna(df['review_scores_rating'].mean(), inplace=True)
         df['reviews_per_month'].fillna(0, inplace=True)
+        df['host_is_superhost'] = df['host_is_superhost'].fillna('unspecified')
         # df['first_review'] = pd.to_datetime(df['first_review'], errors='coerce').fillna(0)
         df['last_review'] = pd.to_datetime(df['last_review'], errors='coerce').fillna(0)
 
