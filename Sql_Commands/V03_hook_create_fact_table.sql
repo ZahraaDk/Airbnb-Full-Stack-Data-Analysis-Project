@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS target_schema.fct_booking
     host_id BIGINT, 
     neighbourhood_view TEXT, 
     price NUMERIC, 
-    number_of_reviews TEXT, 
+    number_of_reviews NUMERIC, 
     review_scores_rating NUMERIC,
     sentiment_score NUMERIC, 
     longitude NUMERIC, 
