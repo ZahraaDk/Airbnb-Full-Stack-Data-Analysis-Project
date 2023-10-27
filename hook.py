@@ -113,20 +113,20 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
 
                 """
                 execute_query(db_session, query)
-                print("Column was added")
+                print("Sentiment Column in SQL was updated")
                 apply_sentiment_analysis(staging_df)
-                print("sentiment analsyis applied in python")
+                print("sentiment analsyis applied!")
             staging_dfs = staging_df[staging_df['booking_date'] > etl_date]
             if not staging_dfs.empty:
                 insert_stmt = insert_into_sql_statement_from_df(staging_dfs, target_schema.value, f"stg_{table_name}")
                 execute_return = execute_query(db_session=db_session, query=insert_stmt)
+                print("Data was successfully inserted into staging tables.")
                 if execute_return != ErrorHandling.NO_ERROR:
                     raise Exception(f"Error inserting data into stg_{table_name}: {execute_return}")
                 messages.append(f"Inserted new data after '{etl_date}' into stg_{table_name} successfully.")
     except Exception as e:
         show_error_message(HookSteps.INSERT_INTO_STG_TABLE.value, str(e))
     return messages
-
 
 def execute_hook():
     step = None
