@@ -6,9 +6,9 @@ from logging_handler import show_error_message
 def dataframes_cleansed():
     cleaned_dataframes = {}
     try:
-        # df = read_data_as_dataframe(InputTypes.CSV, Sources.listings_source.value)
-        file_path = r'csv_files\listings.csv'
-        df = read_data_as_dataframe(InputTypes.CSV, file_path)
+        df = read_data_as_dataframe(InputTypes.CSV, Sources.listings_source.value)
+        # file_path = r'csv_files\listings.csv'
+        # df = read_data_as_dataframe(InputTypes.CSV, file_path)
         columns_to_drop = [
             'scrape_id', 'source', 'host_acceptance_rate', 'host_thumbnail_url', 'host_picture_url', 
             'host_listings_count', 'host_has_profile_pic', 'neighbourhood_group_cleansed', 'bathrooms', 'calendar_updated',
@@ -47,7 +47,6 @@ def dataframes_cleansed():
         df['review_scores_rating'].fillna(df['review_scores_rating'].mean(), inplace=True)
         df['reviews_per_month'].fillna(0, inplace=True)
         df['host_is_superhost'] = df['host_is_superhost'].fillna('unspecified')
-        # df['first_review'] = pd.to_datetime(df['first_review'], errors='coerce').fillna(0)
         df['last_review'] = pd.to_datetime(df['last_review'], errors='coerce').fillna(0)
 
         df[['bathrooms', 'bedrooms', 'beds']] = df[['bathrooms', 'bedrooms', 'beds']].fillna(0)
@@ -61,16 +60,17 @@ def dataframes_cleansed():
 
         df['price'] = pd.to_numeric(df['price'])
 
-        # df_2 = read_data_as_dataframe(InputTypes.CSV, Sources.reviews_source.value)
-        df_2 = read_data_as_dataframe(InputTypes.CSV,'csv_files\\reviews.csv')
+        print("First dataframe was executed")
+
+        df_2 = read_data_as_dataframe(InputTypes.CSV, Sources.reviews_source.value)
+        # df_2 = read_data_as_dataframe(InputTypes.CSV,'csv_files\\reviews.csv')
         df_2.rename(columns={'date':'booking_date', 'id':'review_id'}, inplace=True)
         df_2['comments'] = df_2['comments'].fillna('unspecified')
         df_2['listing_id'] = df_2['listing_id'].astype('object')
         df_2['booking_date'] = df_2['booking_date'].apply(pd.to_datetime)
         df_2['comments'] = df_2['comments'].replace('<br/>', '', regex=True)
+        print("Second dataframe was executed!")
 
-        # df_2['sentiment_score'] = '' 
-        
         cleaned_dataframes = {
             'cleaned_df1' : df,
             'cleaned_df2' : df_2
