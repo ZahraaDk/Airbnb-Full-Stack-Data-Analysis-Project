@@ -33,7 +33,6 @@ class DestSchema(Enum):
 class Sources(Enum):
     listings_source = "http://data.insideairbnb.com/united-states/ca/san-diego/2023-09-18/data/listings.csv.gz"
     reviews_source = "http://data.insideairbnb.com/united-states/ca/san-diego/2023-09-18/data/reviews.csv.gz"
-    calender_source = "http://data.insideairbnb.com/united-states/ca/san-diego/2023-09-18/data/calendar.csv.gz"
 
 class ETLStep(Enum):
     PRE_HOOK = "prehook"
