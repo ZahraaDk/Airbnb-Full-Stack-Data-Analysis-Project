@@ -123,9 +123,10 @@ Bin Tracker is built using the following technologies:
 Interactive PowerBI Dashboard: <br>
 A central dashboard where viewers can check: <br>
 
-1. Airbnb Insights: Graphs, charts and visualizations displaying key insights into the Airbnb market over time, along with key influencers and decomposition trees that aid in the understanding of the analysis.
-2. Sentiment Analysis: Representations of guest review sentiments for Airbnb experiences using interactive representations, including heat maps, pie charts, or sentiment bars. 
-3. Interactive filters: Options to filter data by date and region.
+1. Airbnb Insights: Graphs, charts and visualizations displaying key insights into the Airbnb market over time, along with key influencers that aid in the understanding of the analysis.
+2. Sentiment Analysis: Representations of guest review sentiments for Airbnb experiences using interactive representations including scatter diragram, pie chart, tooltip(for detailed information), and line graph, with the ability to filter through date and demographic areas. 
+3. Host Performance: Decomposition tree, line and stacked column chart where the user can filter by price, year, and average score for a better view of the chart. 
+4. Interactive filters: Options to filter data by date, region, price, and number of reviews. 
 
 
   
@@ -136,9 +137,11 @@ A central dashboard where viewers can check: <br>
 
 ## Backend
 
-1. ETL Pipeline: Using Python and pandas, raw data is extracted, transformed into a usable format and loaded into PostgreSQL database.
+1. ETL Pipeline: Using Python and pandas, raw data is extracted from online resources that are frequently updated, transformed into a usable format and loaded into PostgreSQL database, with the focus on data that aids my analysis.
 2. Database: Schema Design - Indexing - Data Integrity - Backup & Recovery.
-3. Sentiment Analysis: Applying sentiment analysis in the ETL process to extract sentiment from the reviews. 
+3. Data Quality Assurance: Using pandas, data validation and cleaning steps are implemeted in my ETL pipeline. Ensuring that the data extracted and transformed is accurate and consistent.
+4. Logging and Monitoring: Logging and monitoring of the ETL pipeline is implemented to track its performance, identify issues, and ensure that it runs smoothly.
+5. Sentiment Analysis: Sentiment analysis is applied in the ETL process to extract sentiment from the reviews. 
 
 <br>
 
@@ -258,7 +261,7 @@ Using Keras, we analyze the historical economic data, training predictive models
 
 **Dependencies**:
 
--   Install the necessary Python libraries: `pandas`, `nltk`, `SentimentIntensityAnalyzer`, `datetime`
+-   Install the necessary Python libraries: `pandas`, `psycopg2-binary`, `nltk`, `vaderSentiment`, `datetime`
 -   Install database connectors/drivers for PostgreSQL.
   
 
@@ -269,7 +272,7 @@ Using Keras, we analyze the historical economic data, training predictive models
 
 ```sh
 
-git clone https://github.co/your-repo-link/usa-recession-analysis.git
+git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 
 ```
 
@@ -277,7 +280,7 @@ git clone https://github.co/your-repo-link/usa-recession-analysis.git
 **Set Up the Database**:
 
 -   Start the PostgreSQL server.
--   Create a new database and user with the appropriate permissions.
+-   Create a new database and user with the appropriate permissions that were mentioned in the database handler.
 -   Run any initialization scripts to set up tables or initial.
 
 ### **Running the Backend**:
