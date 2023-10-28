@@ -7,8 +7,6 @@ def dataframes_cleansed():
     cleaned_dataframes = {}
     try:
         df = read_data_as_dataframe(InputTypes.CSV, Sources.listings_source.value)
-        # file_path = r'csv_files\listings.csv'
-        # df = read_data_as_dataframe(InputTypes.CSV, file_path)
         columns_to_drop = [
             'scrape_id', 'source', 'host_acceptance_rate', 'host_thumbnail_url', 'host_picture_url', 
             'host_listings_count', 'host_has_profile_pic', 'neighbourhood_group_cleansed', 'bathrooms', 'calendar_updated',
@@ -63,7 +61,6 @@ def dataframes_cleansed():
         print("First dataframe was executed")
 
         df_2 = read_data_as_dataframe(InputTypes.CSV, Sources.reviews_source.value)
-        # df_2 = read_data_as_dataframe(InputTypes.CSV,'csv_files\\reviews.csv')
         df_2.rename(columns={'date':'booking_date', 'id':'review_id'}, inplace=True)
         df_2['comments'] = df_2['comments'].fillna('unspecified')
         df_2['listing_id'] = df_2['listing_id'].astype('object')
