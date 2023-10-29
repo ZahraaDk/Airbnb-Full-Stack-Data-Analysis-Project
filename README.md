@@ -86,7 +86,7 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 
 
-![Map]('./screenshots/db_schema_airbnb.png')
+<img src = "./screenshots/db_schema_airbnb.png" />
   
   
 
@@ -150,16 +150,17 @@ A central dashboard where viewers can check: <br>
 
  Dashboard Screen 
 
-![Landing](screenshots\airbnb_1.png) 
-<br><br> ![fsdaf](screenshots\airbnb_2.png) 
- 
-![fsdaf](screenshots\airbnb_3.png) 
+<img src = "./screenshots/airbnb_1.png" /> 
+<br><br>
+<img src = "./screenshots/airbnb_2.png"/> 
+ <br><br>
+<img src = "./screenshots/airbnb_3.png"/> 
+
+<br>
+ <img src = "./screenshots/airbnb_4.png"/> <br><br> <img src = "./screenshots/airbnb_4_1.png" />  
 
 
- ![Landing](screenshots\airbnb_4.png) <br><br> ![fsdaf](screenshots\airbnb_4_1.png) 
-
-
- ![fsdaf](screenshots\airbnb_5.png)
+<img src = "./screenshots/airbnb_5.png" />
 
   
   
