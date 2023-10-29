@@ -20,6 +20,8 @@ def execute_sql_folder_hook(db_session, target_schema = DestSchema.DW_SCHEMA, sq
                     return_query = execute_query(db_session=db_session, query=sql_query)
                     if not return_query == ErrorHandling.NO_ERROR:
                         raise Exception( f" {HookSteps.EXECUTE_SQL_COMMANDS.value} = SQL File Error on SQL file = " + str(sql_file))
+        logging.info("Hook SQL Folder was successfully executed!")
+        logging.info("Data were successfully inserted into Relational database(PostgreSQL)")
     except Exception as e:
         show_error_message(ErrorHandling.HOOK_SQL_ERROR.value, str(e))
     finally:
@@ -57,8 +59,11 @@ def insert_or_update_etl_checkpoint(db_session,
                 VALUES('{ETL_Checkpoint.ETL_DEFAULT_DATE.value}')
             """
             execute_query(db_session=db_session, query=insert_query)
+            logging.info("Updated ETL last_update!")
+        logging.info("Updated ETL last_update!")
     except Exception as e:
         show_error_message(HookSteps.INSERT_UPDATE_ETL_CHECKPOINT.value,str(e))
+
 
 
 def return_etl_last_updated_date(db_session,
@@ -132,10 +137,10 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
 
                 """
                 execute_query(db_session, query)
-                print("Sentiment Column in SQL was updated")
+                print("Sentiment Columns in SQL were updated")
                 apply_sentiment_analysis(staging_df)
                 print("sentiment analsyis applied!")
-                
+                logging.info("Sentiment Analysis was applied!")
 
             staging_dfs = staging_df[staging_df['booking_date'] > etl_date]
             if not staging_dfs.empty:
@@ -145,6 +150,7 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
                 if execute_return != ErrorHandling.NO_ERROR:
                     raise Exception(f"Error inserting data into stg_{table_name}: {execute_return}")
                 messages.append(f"Inserted new data after '{etl_date}' into stg_{table_name} successfully.")
+        logging.info("Successfully inserted new data into the staging tables!")
     except Exception as e:
         show_error_message(HookSteps.INSERT_INTO_STG_TABLE.value, str(e))
     return messages
