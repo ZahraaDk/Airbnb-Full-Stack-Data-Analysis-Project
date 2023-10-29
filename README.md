@@ -75,7 +75,7 @@
 
 
 
- ![Landing](screenshots\logging_trial.png)
+ <img src = "./screenshots/logging_trial.png" />
 Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
   
   
