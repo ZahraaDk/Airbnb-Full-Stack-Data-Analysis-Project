@@ -3,8 +3,8 @@ CREATE TABLE IF NOT EXISTS target_schema.agg_host
     host_id INTEGER, 
     avg_reviews_per_host NUMERIC,
     avg_scores_per_host NUMERIC, 
-    superhost_count TEXT, 
-    non_superhost_count TEXT
+    superhost_count INTEGER, 
+    non_superhost_count INTEGER
 );
 CREATE INDEX IF NOT EXISTS "idx_agg_host" ON target_schema.agg_host(host_id);
 INSERT INTO target_schema.agg_host
