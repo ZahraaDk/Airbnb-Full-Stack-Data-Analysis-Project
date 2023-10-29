@@ -19,7 +19,6 @@ def execute_sql_folder_prehook(db_session, target_schema = DestSchema.DW_SCHEMA,
                     if not return_query == ErrorHandling.NO_ERROR:
                         raise Exception( f" {PrehookSteps.EXECUTE_SQL_COMMANDS.value} = SQL File Error on SQL file = " + str(sql_file))
         logging.info("Prehook SQL folder was successfully executed!")
-
     except Exception as e:
         show_error_message(ErrorHandling.PREHOOK_SQL_ERROR.value, str(e))
     finally:
@@ -43,10 +42,9 @@ def create_sql_staging_tables(db_session, target_schema):
                 raise Exception(f"{ErrorHandling.EXECUTE_QUERY_ERROR}: this error occured while creating the table!")
             create_sql_stg_table_idx(db_session, f"{target_schema.value}", stg_table_name, columns[0])
             create_statements[table_name] = create_stmt
-            logging.info("The create staging table statement and staging table index was successfully created!")
         except Exception as e:
             show_error_message(ErrorHandling.ERROR_CREATING_STAGING_TABLE.value, str(e))
-        
+    logging.info("The create staging table statement and staging table index was successfully created!")
     return create_statements
 
 def create_sql_stg_table_idx(db_session,source_name,table_name,index_val):
