@@ -1,6 +1,7 @@
 from database_handler import execute_query, create_connection, close_connection
 from lookups import StagingTables, DestSchema, ErrorHandling
 from logging_handler import show_error_message
+import logging
 
 def truncate_staging_table(db_session, source_name=DestSchema.DW_SCHEMA):
     try:
@@ -12,6 +13,7 @@ def truncate_staging_table(db_session, source_name=DestSchema.DW_SCHEMA):
             """
             execute_query(db_session, truncate_query)
             print(f"Table {dst_table} truncated successfully.")
+        logging.info("Successfully truncated staging tables")
     except Exception as e:
         show_error_message(ErrorHandling.TRUNCATE_ERROR.value, str(e))
 
