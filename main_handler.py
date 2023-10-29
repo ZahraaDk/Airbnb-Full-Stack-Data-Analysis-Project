@@ -6,5 +6,5 @@ import logging
 logging.basicConfig(filename='execution.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 execute_prehook()
-# execute_hook()
-# execute_posthook()
+execute_hook()
+execute_posthook()
