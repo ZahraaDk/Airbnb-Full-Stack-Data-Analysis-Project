@@ -73,12 +73,10 @@
 
   
 
-| Bins Map screen | Dashboard screen | Bin Management screen |
 
-| ---| ---| ---|
 
-| ![Landing](./readme/wireframes/web/map.png) | ![Admin Dashboard](./readme/wireframes/web/dashboard.png) | ![User Management](./readme/wireframes/web/bin_crud.png) |
-
+ ![Landing](screenshots\logging_trial.png)
+Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
   
   
 
@@ -86,22 +84,12 @@
 
   
 
-| Map screen | Dashboard screen | Bin Management screen |
 
-| ---| ---| ---|
 
-| ![Map](readme/mockups/web/map.png)| ![Map](./readme/mockups/web/dashboard.png)| ![Map](./readme/mockups/web/bin_crud.png)|
-
+![Map](screenshots\db_schema_airbnb.png)
   
   
 
-| Announcements screen | Login screen | Landing screen |
-
-| ---| ---| ---|
-
-| ![Map](readme/mockups/web/announcements.png)| ![Map](./readme/mockups/web/login.png)| ![Map](./readme/mockups/web/landing.png)|
-
-<br><br>
 
   
 
@@ -160,82 +148,31 @@ A central dashboard where viewers can check: <br>
 ### App
 
 
-| Dashboard Screen | Create Bin Screen |
+ Dashboard Screen 
 
-| ---| ---|
+![Landing](screenshots\airbnb_1.png) 
+<br><br> ![fsdaf](screenshots\airbnb_2.png) 
+ 
+![fsdaf](screenshots\airbnb_3.png) 
 
-| ![Landing](./readme/implementation/dashboard.gif) | ![fsdaf](./readme/implementation/create_bin.gif) |
 
-  
+ ![Landing](screenshots\airbnb_4.png) <br><br> ![fsdaf](screenshots\airbnb_4_1.png) 
 
-| Bins to Map Screen |
 
-| ---|
-
-| ![fsdaf](./readme/implementation/map.gif) |
-
-  
-  
-
-| Filter Bins Screen | Update Pickup Time Screen |
-
-| ---| ---|
-
-| ![Landing](./readme/implementation/filter_bins.gif) | ![fsdaf](./readme/implementation/update_pickup.gif) |
+ ![fsdaf](screenshots\airbnb_5.png)
 
   
-  
-
-| Announcements Screen |
-
-| ---|
-
-| ![fsdaf](./readme/implementation/message.gif)|
-
-  
-  
-
-| Change Map Screen | Edit Profile Screen |
-
-| ---| ---|
-
-| ![Landing](./readme/implementation/change_map.gif) | ![fsdaf](./readme/implementation/edit_profile.gif) |
-
-  
-  
-
-| Landing Screen |
-
-| ---|
-
-| ![fsdaf](./readme/implementation/landing.gif)|
-
   
 
 <br><br>
 
-<!-- ### Machine Learning (ML) component
-Using Keras, we analyze the historical economic data, training predictive models and deploying them for real-time predictions.
 
-  Data Collection & Preprocessing.
-  Model Selection & Training
-  Model Evaluation.
-  Model Deployment -->
-  
 
-<!-- | ML Flow Diagram|
-
-| ---| ---|
-
-|![fsdaf](./readme/implementation/arduino.gif)|![fsdaf](./readme/implementation/circuit.png)
-
-   -->
-
-| Data Transfer Demo |
+<!-- | Data Transfer Demo |
 
 | ---|
 
-| ![fsdaf](./readme/implementation/arduino_data.png) |
+| ![fsdaf](./readme/implementation/arduino_data.png) | -->
 
 <br><br>
 
@@ -289,6 +226,6 @@ git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 `python data_ingestion_script.py`
 
 
-You should be able to check the app.log file to see the ETL work.
+You should be able to check the above screenshots to see the ETL work.
 
 As for the dashboard access: Please use this link "public powerbi link" to access your data.
