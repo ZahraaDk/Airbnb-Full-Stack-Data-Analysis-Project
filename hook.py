@@ -6,6 +6,7 @@ import os
 import datetime
 from pandas_handler import dataframes_cleansed
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import logging
 
 def execute_sql_folder_hook(db_session, target_schema = DestSchema.DW_SCHEMA, sql_directory_path = SQLCommands.SQL_FOLDER):
     sql_files = None
@@ -86,9 +87,17 @@ def analyze_sentiment(text):
     compound_score = sentiment['compound']
     return compound_score
 
+def categorize_sentiment(sentiment_score):
+    if sentiment_score > 0.1:
+        return "Positive"
+    elif sentiment_score < -0.1:
+        return "Negative"
+    else:
+        return "Neutral"
+
 def apply_sentiment_analysis(df):
     df['sentiment_score'] = df['comments'].apply(analyze_sentiment)
-
+    df['sentiment'] = df['sentiment_score'].apply(categorize_sentiment)
 
 def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_date=None):
     messages = []
@@ -109,6 +118,16 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
                             ALTER TABLE {target_schema.value}.stg_{table_name}
                             ADD COLUMN sentiment_score DECIMAL(10, 5);
                         END IF;
+                        IF NOT EXISTS (
+                            SELECT column_name
+                            FROM information_schema.columns
+                            WHERE table_name = 'stg_{table_name}'
+                            AND column_name = 'sentiment'
+                        )
+                        THEN 
+                            ALTER TABLE {target_schema.value}.stg_{table_name}
+                            ADD COLUMN sentiment VARCHAR(255);
+                        END IF;
                     END $$;
 
                 """
@@ -116,6 +135,8 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
                 print("Sentiment Column in SQL was updated")
                 apply_sentiment_analysis(staging_df)
                 print("sentiment analsyis applied!")
+                
+
             staging_dfs = staging_df[staging_df['booking_date'] > etl_date]
             if not staging_dfs.empty:
                 insert_stmt = insert_into_sql_statement_from_df(staging_dfs, target_schema.value, f"stg_{table_name}")
@@ -131,20 +152,13 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
 def execute_hook():
     step = None
     try:
-        step = 1
         db_session = create_connection()
-        step = 2
         create_etl_checkpoint(DestSchema.DW_SCHEMA,db_session)
-        step = 3
         etl_date, etl_time_exists = return_etl_last_updated_date(db_session)
-        step = 4
         insert_into_stg_tables(db_session,DestSchema.DW_SCHEMA, etl_date)
-        step = 5
         execute_sql_folder_hook(db_session)
-        step = 6
         insert_or_update_etl_checkpoint(db_session, etl_time_exists=etl_time_exists)
-        step = 7
         close_connection(db_session)
     except Exception as e:
-        error_prefix = f'{ErrorHandling.HOOK_SQL_ERROR.value} on step {step}'
+        error_prefix = f'{ErrorHandling.HOOK_SQL_ERROR.value}'
         show_error_message(error_prefix,str(e))
