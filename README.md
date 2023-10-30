@@ -88,11 +88,31 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 <img src = "./screenshots/db_schema_airbnb.png" />
   
+### Dashboard Screen
+
+Cover Page
+<img src = "./screenshots/airbnb_sc_1.png" /> 
+<br><br>
+Overview of the San Diego Airbnb market.
+<img src = "./screenshots/airbnb_sc_2.png"/> 
+ <br><br>
+ Price Analysis page
+<img src = "./screenshots/airbnb_sc_3.png"/> 
+<br>
+
+
+Review Analysis page
+ <img src = "./screenshots/airbnb_sc_4.png"/> <br><br> 
+ Showing the tooltip used in the review analysis page
+<img src = "./screenshots/airbnb_sc_4_1.png" />  <br><br>
+Host performance page
+<img src = "./screenshots/airbnb_sc_5.png" />
+
   
 
 
   
-
+<br><br>
 <!-- Tech stacks -->
 
 <a  name="stacks"></a>
@@ -100,28 +120,6 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 <br>
 
-
-### Dashboard Screen
-
-Cover Page
-<img src = "./screenshots/airbnb_1.png" /> 
-<br><br>
-Overview of the San Diego Airbnb market.
-<img src = "./screenshots/airbnb_2.png"/> 
- <br><br>
- Price Analysis page
-<img src = "./screenshots/airbnb_3.png"/> 
-<br>
-
-
-Review Analysis page
- <img src = "./screenshots/airbnb_4.png"/> <br><br> 
- Showing the tooltip used in the review analysis page
-<img src = "./screenshots/airbnb_4_1.png" />  <br><br>
-Host performance page
-<img src = "./screenshots/airbnb_5.png" />
-
-  
 
 ## Frontend
 
@@ -162,10 +160,7 @@ A central dashboard where viewers can check: <br>
 > Show command line of ETL performance - Logger view
 
   
-### App
 
-
- Dashboard Screen 
 
 
   
@@ -230,7 +225,7 @@ git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 ### **Running the Backend**:
 
 **Start the Data Ingestion & ETL Process**:
-`python data_ingestion_script.py`
+`main_handler.py`
 
 
 You should be able to check the above screenshots to see the ETL work.
