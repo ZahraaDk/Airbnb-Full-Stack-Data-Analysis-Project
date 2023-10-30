@@ -103,7 +103,7 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 | Home Page |
 | ----------|
-|![Home](screenshots\sc_airbnb_01.png) |
+|![Home](./screenshots/sc_airbnb_01.png) |
  
 
 <br>
