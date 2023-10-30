@@ -141,7 +141,11 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 | ----------|
 |![Host Performance](./screenshots/sc_airbnb_03.png) | 
 
-  
+<br>
+
+| Full Dashboard |
+| ----------|
+|![Full Dashboard](./screenshots/pbix_airbnb_3.gif) | 
   
 
 <br><br>
@@ -235,4 +239,4 @@ git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 
 You should be able to check the above screenshots to see the ETL work.
 
-As for the dashboard access: Please use this link "public powerbi link" to access your data.
+As for the dashboard access: Please use this link "https://app.powerbi.com/view?r=eyJrIjoiMWNhN2U3ODktZDJjZi00NDc1LThmMjktNzMyZDZmYTBmMTY5IiwidCI6IjJhZDk2OTM0LTQzZTUtNDFjMi05NzYxLWYzMzVmZTIxNGNjMyIsImMiOjl9" to access your data.
