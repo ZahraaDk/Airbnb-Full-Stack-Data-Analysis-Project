@@ -100,9 +100,26 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 <br>
 
-  
 
-Bin Tracker is built using the following technologies:
+### Dashboard Screen
+
+Cover Page
+<img src = "./screenshots/airbnb_1.png" /> 
+<br><br>
+Overview of the San Diego Airbnb market.
+<img src = "./screenshots/airbnb_2.png"/> 
+ <br><br>
+ Price Analysis page
+<img src = "./screenshots/airbnb_3.png"/> 
+<br>
+
+
+Review Analysis page
+ <img src = "./screenshots/airbnb_4.png"/> <br><br> 
+ Showing the tooltip used in the review analysis page
+<img src = "./screenshots/airbnb_4_1.png" />  <br><br>
+Host performance page
+<img src = "./screenshots/airbnb_5.png" />
 
   
 
@@ -150,17 +167,6 @@ A central dashboard where viewers can check: <br>
 
  Dashboard Screen 
 
-<img src = "./screenshots/airbnb_1.png" /> 
-<br><br>
-<img src = "./screenshots/airbnb_2.png"/> 
- <br><br>
-<img src = "./screenshots/airbnb_3.png"/> 
-
-<br>
- <img src = "./screenshots/airbnb_4.png"/> <br><br> <img src = "./screenshots/airbnb_4_1.png" />  
-
-
-<img src = "./screenshots/airbnb_5.png" />
 
   
   
