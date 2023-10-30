@@ -69,44 +69,6 @@
 
   
 
-### Logger File
-
-  
-
-
-
- <img src = "./screenshots/logging_trial.png" />
-Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
-  
-  
-
-### Data Flow Diagrams
-
-  
-
-
-
-<img src = "./screenshots/db_schema_airbnb.png" />
-  
-### Dashboard Screen
-
-Cover Page
-<img src = "./screenshots/airbnb_sc_1.png" /> 
-<br><br>
-Overview of the San Diego Airbnb market.
-<img src = "./screenshots/airbnb_sc_2.png"/> 
- <br><br>
- Price Analysis page
-<img src = "./screenshots/airbnb_sc_3.png"/> 
-<br>
-
-
-Review Analysis page
- <img src = "./screenshots/airbnb_sc_4.png"/> <br><br> 
- Showing the tooltip used in the review analysis page
-<img src = "./screenshots/airbnb_sc_4_1.png" />  <br><br>
-Host performance page
-<img src = "./screenshots/airbnb_sc_5.png" />
 
   
 
@@ -150,16 +112,62 @@ A central dashboard where viewers can check: <br>
 
 <br>
 
-  
-
-<!-- Implementation -->
-
-<a  name="Demo"  ></a>
-<img  src="./readme/title5.svg" id="#demo"/>
-
-> Show command line of ETL performance - Logger view
+### Logger File
 
   
+
+
+
+ <img src = "./screenshots/logging_trial.png" />
+Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
+  
+  
+
+### Data Flow Diagrams
+
+  
+
+<img src = "./screenshots/db_schema_airbnb.png" />
+  
+### Dashboard Screen
+
+### Report Screenshots
+
+| Home Page |
+| ----------|
+|![Home](./screenshots/airbnb_sc_1.png) |
+ 
+
+<br>
+
+| Overview |
+| ----------|
+|![Overview](./screenshots/airbnb_sc_2.png) | 
+
+
+ <br> 
+  
+| Price Analysis - Snapshot |
+| ----------|
+|![Price Analysis](./screenshots/airbnb_sc_3.png) | 
+
+
+  
+<br>
+
+| Review Analysis |
+| ----------|
+|![Review Analysis](./screenshots/airbnb_recording.gif) | 
+
+
+ <br> 
+ 
+| Host Performance |
+| ----------|
+|![Host Performance](./screenshots/airbnb_sc_5.png) | 
+
+
+ <br> 
 
 
 
@@ -177,6 +185,21 @@ A central dashboard where viewers can check: <br>
 | ![fsdaf](./readme/implementation/arduino_data.png) | -->
 
 <br><br>
+
+
+
+<!-- Implementation -->
+
+<a  name="Demo"  ></a>
+<img  src="./readme/title5.svg" id="#demo"/>
+
+> Show command line of ETL performance - Logger view
+1. ETL Pipeline with Python and pandas:
+- Python programming language is used for data extraction, transformation, and loading tasks.
+- Pandas library in Python is utilized for data cleaning, transformation, optimization, and analysis. 
+2. PostgreSQL Database: Relational database system is employed for storing and managing datasets. 
+3. Sentiment Analysis: Sentiment analysis is performed to extract sentiment from text data using the VADER tool in NLTK.
+  
 
 
 <!-- How to run -->
