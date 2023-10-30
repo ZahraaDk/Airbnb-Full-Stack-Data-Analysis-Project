@@ -41,23 +41,23 @@
 
   
 1. As a Data Engineer: <br>
-	I want to automatically extract Airbnb data from reputable sources so that our dataset is always up-to-date. <br>
-	I want to integrate different data sources seamlessly. <br>
-	Ensure fault tolerance in our data pipelines, so that potential failures don't interrupt our analyses. <br>
+	- I want to automatically extract Airbnb data from reputable sources so that our dataset is always up-to-date. <br>
+	- I want to integrate different data sources seamlessly. <br>
+	- Ensure fault tolerance in our data pipelines, so that potential failures don't interrupt our analyses. <br>
 2. As an Analyst: <br>
-	I want to query the database. <br>
-	I want to view the sentiment analysis results to understand guest sentiment around Airbnb experience. <br>
-	I want to visualize the data using PowerBI. <br>
+	- I want to query the database. <br>
+	- I want to view the sentiment analysis results to understand guest sentiment around Airbnb experience. <br>
+	- I want to visualize the data using PowerBI. <br>
 3. As an Airbnb Host: <br>
-	I want to access market insights so that i can optimize my property listings and pricing strategies. <br>
-	I want to review guest sentiment analysis results so that I can improve the overall guest experience in my listings. <br>
+	- I want to access market insights so that i can optimize my property listings and pricing strategies. <br>
+	- I want to review guest sentiment analysis results so that I can improve the overall guest experience in my listings. <br>
 4. As a Traveler/Guest: <br>
-	I want to use this data to make decisions when selecting accommodations. <br>
-	I want to understand pricing trends so that I can make budget-conscious choices. <br>
+	- I want to use this data to make decisions when selecting accommodations. <br>
+	- I want to understand pricing trends so that I can make budget-conscious choices. <br>
 5. As a Business Owner: <br>
-	I want to conduct competitive analyses using this data so that I can stay competitive in the market. <br>
-	I want to understand guest review sentiments. <br>
-	I want to use market insights for tailored services and marketing efforts so that my business aligns with customer expectations and attracts more clients. <br>
+	- I want to conduct competitive analyses using this data so that I can stay competitive in the market. <br>
+	- I want to understand guest review sentiments. <br>
+	- I want to use market insights for tailored services and marketing efforts so that my business aligns with customer expectations and attracts more clients. <br>
 
 
 <br><br>
@@ -67,7 +67,23 @@
 
 > We have designed our projects to perform ETL processes, integrate data, and include it in a PowerBI Sample Dashboard.
 
+
+### Logger File
+
   
+
+
+
+ <img src = "./screenshots/logging_trial.png" />
+Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
+  
+  
+
+### Data Flow Diagram
+
+  
+
+<img src = "./screenshots/db_schema_airbnb.png" />
 
 
   
@@ -80,7 +96,64 @@
 <a  name="stacks"></a>
 <img  src="./readme/title4.svg" id="stacks" />
 
+
+### Dashboard Screen
+
+### Report Screenshots
+
+| Home Page |
+| ----------|
+|![Home](screenshots\sc_airbnb_01.png) |
+ 
+
 <br>
+
+| Overview |
+| ----------| 
+
+<video width="640" height="360" controls>
+  <source src="./screenshots/recording_airbnb_1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+ <br> 
+  
+| Price Analysis - Snapshot |
+| ----------|
+|![Price Analysis](./screenshots/sc_airbnb_02.png) | 
+
+
+  
+<br>
+
+| Review Analysis |
+| ----------|
+<!-- |![Review Analysis](./screenshots/airbnb_recording.gif) |  -->
+<video width="640" height="360" controls>
+  <source src="./screenshots/recording_airbnb_2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+ <br> 
+ 
+| Host Performance |
+| ----------|
+|![Host Performance](./screenshots/sc_airbnb_03.png) | 
+
+  
+  
+
+<br><br>
+
+
+
+<!-- Implementation -->
+
+<a  name="Demo"  ></a>
+<img  src="./readme/title5.svg" id="#demo"/>
+
 
 
 ## Frontend
@@ -106,101 +179,11 @@ A central dashboard where viewers can check: <br>
 2. Database: Schema Design - Indexing - Data Integrity - Backup & Recovery.
 3. Data Quality Assurance: Using pandas, data validation and cleaning steps are implemeted in my ETL pipeline. Ensuring that the data extracted and transformed is accurate and consistent.
 4. Logging and Monitoring: Logging and monitoring of the ETL pipeline is implemented to track its performance, identify issues, and ensure that it runs smoothly.
-5. Sentiment Analysis: Sentiment analysis is applied in the ETL process to extract sentiment from the reviews. 
-
-<br>
-
-<br>
-
-### Logger File
-
-  
-
-
-
- <img src = "./screenshots/logging_trial.png" />
-Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
-  
-  
-
-### Data Flow Diagrams
-
-  
-
-<img src = "./screenshots/db_schema_airbnb.png" />
-  
-### Dashboard Screen
-
-### Report Screenshots
-
-| Home Page |
-| ----------|
-|![Home](./screenshots/airbnb_sc_1.png) |
- 
-
-<br>
-
-| Overview |
-| ----------|
-|![Overview](./screenshots/airbnb_sc_2.png) | 
-
-
- <br> 
-  
-| Price Analysis - Snapshot |
-| ----------|
-|![Price Analysis](./screenshots/airbnb_sc_3.png) | 
+5. Sentiment Analysis: Sentiment analysis is applied in the ETL process to extract sentiment from the reviews using the VADER tool in NLTK. 
 
 
   
-<br>
-
-| Review Analysis |
-| ----------|
-|![Review Analysis](./screenshots/airbnb_recording.gif) | 
-
-
- <br> 
- 
-| Host Performance |
-| ----------|
-|![Host Performance](./screenshots/airbnb_sc_5.png) | 
-
-
- <br> 
-
-
-
-  
-  
-
 <br><br>
-
-
-
-<!-- | Data Transfer Demo |
-
-| ---|
-
-| ![fsdaf](./readme/implementation/arduino_data.png) | -->
-
-<br><br>
-
-
-
-<!-- Implementation -->
-
-<a  name="Demo"  ></a>
-<img  src="./readme/title5.svg" id="#demo"/>
-
-> Show command line of ETL performance - Logger view
-1. ETL Pipeline with Python and pandas:
-- Python programming language is used for data extraction, transformation, and loading tasks.
-- Pandas library in Python is utilized for data cleaning, transformation, optimization, and analysis. 
-2. PostgreSQL Database: Relational database system is employed for storing and managing datasets. 
-3. Sentiment Analysis: Sentiment analysis is performed to extract sentiment from text data using the VADER tool in NLTK.
-  
-
 
 <!-- How to run -->
 
