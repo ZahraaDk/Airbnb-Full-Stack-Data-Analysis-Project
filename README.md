@@ -110,7 +110,8 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 | Overview |
 | ----------| 
-|![Overview](./screenshots/pbix_airbnb.gif) | 
+|![Overview](./screenshots/pbix1.gif) | 
+
 
 
 
@@ -234,7 +235,7 @@ git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 ### **Running the Backend**:
 
 **Start the Data Ingestion & ETL Process**:
-`main_handler.py`
+`python main_handler.py`
 
 
 You should be able to check the above screenshots to see the ETL work.
