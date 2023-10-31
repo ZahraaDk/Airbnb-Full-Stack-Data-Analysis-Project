@@ -147,7 +147,12 @@ The first ETL run takes between 12 to 15 minutes, depending on the internet spee
 
 | Full Dashboard |
 | ----------|
-|![Full Dashboard]( ) | 
+
+
+
+https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Analysis-Project/assets/141562480/74d4d408-76bd-4684-adf3-92df69652bb8
+
+
   
 
 <br><br>
