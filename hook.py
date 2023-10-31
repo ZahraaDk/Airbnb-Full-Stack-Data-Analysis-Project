@@ -21,11 +21,11 @@ def execute_sql_folder_hook(db_session, target_schema = DestSchema.DW_SCHEMA, sq
                     if not return_query == ErrorHandling.NO_ERROR:
                         raise Exception( f" {HookSteps.EXECUTE_SQL_COMMANDS.value} = SQL File Error on SQL file = " + str(sql_file))
         logging.info("Hook SQL Folder was successfully executed!")
-        logging.info("Data were successfully inserted into Relational database(PostgreSQL)")
+        logging.info("Data was successfully inserted into Relational database(PostgreSQL)")
     except Exception as e:
         show_error_message(ErrorHandling.HOOK_SQL_ERROR.value, str(e))
     finally:
-        return sql_files 
+        return sql_files  
 
 def create_etl_checkpoint(target_schema, db_session):
     query = None
@@ -36,6 +36,7 @@ def create_etl_checkpoint(target_schema, db_session):
         );
         """
         execute_query(db_session, query)
+        logging.info("ETL Checkpoint was created!")
     except Exception as e:
         show_error_message(HookSteps.CREATE_ETL_CHECKPOINT.value,str(e))
     finally:
@@ -59,7 +60,6 @@ def insert_or_update_etl_checkpoint(db_session,
                 VALUES('{ETL_Checkpoint.ETL_DEFAULT_DATE.value}')
             """
             execute_query(db_session=db_session, query=insert_query)
-            logging.info("Updated ETL last_update!")
         logging.info("Updated ETL last_update!")
     except Exception as e:
         show_error_message(HookSteps.INSERT_UPDATE_ETL_CHECKPOINT.value,str(e))
@@ -81,6 +81,7 @@ def return_etl_last_updated_date(db_session,
         else:
             return_date = etl_df[column_name.value].iloc[0]
             etl_time_exists = True
+        logging.info("ETL last updated date was returned.")
     except Exception as e:
         show_error_message(HookSteps.RETURN_LAST_ETL_RUN.value, str(e))
     finally:    
@@ -137,9 +138,7 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
 
                 """
                 execute_query(db_session, query)
-                print("Sentiment Columns in SQL were updated")
                 apply_sentiment_analysis(staging_df)
-                print("sentiment analsyis applied!")
                 logging.info("Sentiment Analysis was applied!")
 
             staging_dfs = staging_df[staging_df['booking_date'] > etl_date]
@@ -156,6 +155,7 @@ def insert_into_stg_tables(db_session, target_schema=DestSchema.DW_SCHEMA, etl_d
     return messages
 
 def execute_hook():
+    logging.info("Executing the Hook:")
     step = None
     try:
         db_session = create_connection()
