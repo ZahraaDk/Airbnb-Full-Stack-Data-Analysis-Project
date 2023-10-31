@@ -44,7 +44,7 @@ def create_sql_staging_tables(db_session, target_schema):
             create_statements[table_name] = create_stmt
         except Exception as e:
             show_error_message(ErrorHandling.ERROR_CREATING_STAGING_TABLE.value, str(e))
-    logging.info("The create staging table statement and staging table index was successfully created!")
+    logging.info("Staging tables were created and indexed!")
     return create_statements
 
 def create_sql_stg_table_idx(db_session,source_name,table_name,index_val):
@@ -55,6 +55,7 @@ def create_sql_stg_table_idx(db_session,source_name,table_name,index_val):
         show_error_message(PrehookSteps.CREATE_TABLE_IDX.value, str(e))
 
 def execute_prehook(sql_directory_path = SQLCommands.SQL_FOLDER):
+    logging.info("Executing the prehook:")
     try:
         db_session = create_connection()
         execute_sql_folder_prehook(db_session,DestSchema.DW_SCHEMA,sql_directory_path)
