@@ -120,7 +120,7 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
   
 | Price Analysis - Snapshot |
 | ----------|
-|![Price Analysis](./screenshots/sc_airbnb_02.png) | 
+|![Price Analysis](./screenshots/pbix2.gif) | 
 
 
   
@@ -128,7 +128,8 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 | Review Analysis |
 | ----------| 
-|![Review Analysis](./screenshots/pbix_airbnb_2.gif) | 
+|![Review Analysis](./screenshots/pbix3.gif) | 
+
 <!-- |![Landing](/readme/gifs/onBoardingGif.gif)|![Login/Signup](/readme/gifs/loginSignupGif.gif)|![addPet](/readme/gifs/addPetGif.gif)|![addPost](/readme/gifs/addPost.gif)| -->
 <!-- <video width="640" height="360" controls>
   <source src="./screenshots/recording_airbnb_2.mp4" type="video/mp4">
@@ -140,13 +141,13 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
  
 | Host Performance |
 | ----------|
-|![Host Performance](./screenshots/sc_airbnb_03.png) | 
+|![Host Performance](./screenshots/pbix4.gif) | 
 
 <br>
 
 | Full Dashboard |
 | ----------|
-|![Full Dashboard](./screenshots/pbix_airbnb_3.gif) | 
+|![Full Dashboard]( ) | 
   
 
 <br><br>
