@@ -147,7 +147,11 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 | Full Dashboard |
 | ----------|
-|![Full Dashboard]( ) | 
+|![Full Dashboard](
+
+Uploading pbix5.mp4…
+
+ ) | 
   
 
 <br><br>
