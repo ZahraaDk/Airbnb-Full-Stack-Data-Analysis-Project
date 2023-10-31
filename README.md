@@ -118,7 +118,7 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
  <br> 
   
-| Price Analysis - Snapshot |
+| Price Analysis |
 | ----------|
 |![Price Analysis](./screenshots/pbix2.gif) | 
 
