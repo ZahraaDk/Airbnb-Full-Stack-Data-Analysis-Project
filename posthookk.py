@@ -19,6 +19,7 @@ def truncate_staging_table(db_session, source_name=DestSchema.DW_SCHEMA):
 
 
 def execute_posthook():
+    logging.info("Executing the posthook:")
     try:
         db_session = create_connection()
         truncate_staging_table(db_session, source_name = DestSchema.DW_SCHEMA)
