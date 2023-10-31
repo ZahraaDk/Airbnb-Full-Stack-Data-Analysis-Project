@@ -49,7 +49,7 @@
 	- I want to view the sentiment analysis results to understand guest sentiment around Airbnb experience. <br>
 	- I want to visualize the data using PowerBI. <br>
 3. As an Airbnb Host: <br>
-	- I want to access market insights so that i can optimize my property listings and pricing strategies. <br>
+	- I want to access market insights so that I can optimize my property listings and pricing strategies. <br>
 	- I want to review guest sentiment analysis results so that I can improve the overall guest experience in my listings. <br>
 4. As a Traveler/Guest: <br>
 	- I want to use this data to make decisions when selecting accommodations. <br>
@@ -241,4 +241,4 @@ git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 
 You should be able to check the above screenshots to see the ETL work.
 
-As for the dashboard access: Please use this link "https://app.powerbi.com/view?r=eyJrIjoiMWNhN2U3ODktZDJjZi00NDc1LThmMjktNzMyZDZmYTBmMTY5IiwidCI6IjJhZDk2OTM0LTQzZTUtNDFjMi05NzYxLWYzMzVmZTIxNGNjMyIsImMiOjl9" to access your data.
+As for the dashboard access: Please use this [Link](https://app.powerbi.com/viewr=eyJrIjoiMWNhN2U3ODktZDJjZi00NDc1LThmMjktNzMyZDZmYTBmMTY5IiwidCI6IjJhZDk2OTM0LTQzZTUtNDFjMi05NzYxLWYzMzVmZTIxNGNjMyIsImMiOjl9) to access your data.
