@@ -49,7 +49,7 @@
 	- I want to view the sentiment analysis results to understand guest sentiment around Airbnb experience. <br>
 	- I want to visualize the data using PowerBI. <br>
 3. As an Airbnb Host: <br>
-	- I want to access market insights so that I can optimize my property listings and pricing strategies. <br>
+	- I want to access market insights so that i can optimize my property listings and pricing strategies. <br>
 	- I want to review guest sentiment analysis results so that I can improve the overall guest experience in my listings. <br>
 4. As a Traveler/Guest: <br>
 	- I want to use this data to make decisions when selecting accommodations. <br>
@@ -74,7 +74,7 @@
 
 
 
- <img src = "./screenshots/logging_trial.png" />
+ <img src = "./screenshots/logger_file.png" />
 Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
   
   
@@ -118,7 +118,7 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
  <br> 
   
-| Price Analysis |
+| Price Analysis - Snapshot |
 | ----------|
 |![Price Analysis](./screenshots/pbix2.gif) | 
 
@@ -147,8 +147,8 @@ Each ETL takes between 12 to 15 minutes to run, depending on the internet speed.
 
 | Full Dashboard |
 | ----------|
-
-https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Analysis-Project/assets/141562480/0e4d00eb-aba4-4700-919e-5f16c8e14ba2
+|![Full Dashboard]( ) | 
+  
 
 <br><br>
 
@@ -230,7 +230,7 @@ git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 **Set Up the Database**:
 
 -   Start the PostgreSQL server.
--   Create a new database and user with the appropriate permissions that were mentioned in the database handler.
+-   Create a new database and user with the appropriate permissions that are mentioned in the database_handler file.
 -   Run any initialization scripts to set up tables or initial.
 
 ### **Running the Backend**:
@@ -239,6 +239,6 @@ git clone https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Project.git
 `python main_handler.py`
 
 
-You should be able to check the above screenshots to see the ETL work.
+You should be able to check the app.log to see the ETL work.
 
-As for the dashboard access: Please use [this link](https://app.powerbi.com/view?r=eyJrIjoiMWNhN2U3ODktZDJjZi00NDc1LThmMjktNzMyZDZmYTBmMTY5IiwidCI6IjJhZDk2OTM0LTQzZTUtNDFjMi05NzYxLWYzMzVmZTIxNGNjMyIsImMiOjl9) to access the Power BI report.
+As for the dashboard access: Please use this link "https://app.powerbi.com/view?r=eyJrIjoiMWNhN2U3ODktZDJjZi00NDc1LThmMjktNzMyZDZmYTBmMTY5IiwidCI6IjJhZDk2OTM0LTQzZTUtNDFjMi05NzYxLWYzMzVmZTIxNGNjMyIsImMiOjl9" to access your data.
