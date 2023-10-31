@@ -65,7 +65,7 @@
 <!-- Prototyping -->
 <img  src="./readme/title3.svg"  id="prototyping"/>
 
-> We have designed our projects to perform ETL processes, integrate data, and include it in a PowerBI Sample Dashboard.
+> I designed my project to perform ETL processes, integrate data, and include it in a PowerBI Sample Dashboard.
 
 
 ### Logger File
@@ -75,7 +75,7 @@
 
 
  <img src = "./screenshots/logger_file.png" />
-Each ETL takes between 12 to 15 minutes to run, depending on the internet speed. 
+The first ETL run takes between 12 to 15 minutes, depending on the internet speed. Subsequent ETL runs take about 8 to 10 minutes.
   
   
 
