@@ -118,7 +118,7 @@ The first ETL run takes between 12 to 15 minutes, depending on the internet spee
 
  <br> 
   
-| Price Analysis - Snapshot |
+| Price Analysis |
 | ----------|
 |![Price Analysis](./screenshots/pbix2.gif) | 
 
