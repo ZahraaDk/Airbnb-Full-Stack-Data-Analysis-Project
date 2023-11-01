@@ -86,15 +86,15 @@ The first ETL run takes between 12 to 15 minutes, depending on the internet spee
 <img src = "./screenshots/db_schema_airbnb.png" />
 
 
-  
-
-
-  
 <br><br>
-<!-- Tech stacks -->
 
-<a  name="stacks"></a>
-<img  src="./readme/title4.svg" id="stacks" />
+
+<!-- Implementation -->
+
+<a  name="Demo"  ></a>
+<img  src="./readme/title4.svg" id="#demo"/>
+  
+
 
 
 ### Dashboard Screen
@@ -158,11 +158,11 @@ https://github.com/ZahraaDk/Airbnb-Full-Stack-Data-Analysis-Project/assets/14156
 <br><br>
 
 
+<!-- Tech stacks -->
 
-<!-- Implementation -->
+<a  name="stacks"></a>
+<img  src="./readme/title5.svg" id="stacks" />
 
-<a  name="Demo"  ></a>
-<img  src="./readme/title5.svg" id="#demo"/>
 
 
 
